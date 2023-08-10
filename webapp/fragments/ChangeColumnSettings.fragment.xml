@@ -1,0 +1,100 @@
+<core:FragmentDefinition xmlns="sap.ui.table" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<m:VBox class="sapUiSmallMargin">
+	<f:SimpleForm id="idChngColSettingsForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>columnSettings}" >
+		<f:toolbar>
+		<m:Toolbar>
+			<m:Title text="{i18n>columnSettings}"/>
+			<m:ToolbarSpacer />
+			<m:Button icon="sap-icon://display" text="{i18n>displayBtn}" tooltip="{i18n>displayBtn}" press="onDisplayColSetsPressed"/>
+			<m:Button icon="sap-icon://save" text="{i18n>saveBtn}" tooltip="{i18n>saveBtn}" press="onSaveColSetPressed"/>
+		</m:Toolbar>
+		</f:toolbar>
+		<f:content>
+        <Table id="idChngColSettingsTable" rows="{colData>/results}" selectionMode="None" visibleRowCount="7">
+        <columns>
+			<Column width="15rem">
+				<m:Label text="{i18n>columnName}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="15rem">
+				<m:Label text="{i18n>characteristic}" wrapping="true"/>
+				<template>
+					<m:Input value="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>columnDesc}" wrapping="true"/>
+				<template>
+					<m:Input value="" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>dataElement}" wrapping="true"/>
+				<template>
+					<m:Input value="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>columnType}" wrapping="true"/>
+				<template>
+					<m:Select id="idChngColType" items="{accessTypeModel>/results}" required="true">
+						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+					</m:Select>
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>materialDisplay}" wrapping="true"/>
+				<template>
+					<m:Select id="idChngMatDisplay" items="{accessTypeModel>/results}" required="true">
+						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+					</m:Select>
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>customerDisplay}" wrapping="true"/>
+				<template>
+					<m:Select id="idChngCustDisplay" items="{accessTypeModel>/results}" required="true">
+						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+					</m:Select>
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>sortPosition}" wrapping="true"/>
+				<template>
+					<m:Input value="" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>columnsCollapsible}" wrapping="true"/>
+				<template>
+					<m:CheckBox selected="true" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>columnsFixed}" wrapping="true"/>
+				<template>
+					<m:CheckBox selected="true" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>cvcValueDisplay}" wrapping="true"/>
+				<template>
+					<m:Select id="idChngCVCValDisplay" items="{accessTypeModel>/results}" required="true">
+						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+					</m:Select>
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>cvcValueColorCode}" wrapping="true"/>
+				<template>
+					<m:Input value="{rowData>LineNameBackup}" />
+				</template>
+			</Column>
+        </columns>
+        </Table>
+		</f:content>
+	</f:SimpleForm>
+</m:VBox>
+</core:FragmentDefinition>

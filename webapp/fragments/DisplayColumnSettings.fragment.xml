@@ -1,0 +1,91 @@
+<core:FragmentDefinition xmlns="sap.ui.table" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<m:VBox class="sapUiSmallMargin">
+	<f:SimpleForm id="idDisplayColSettingsForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>columnSettings}" >
+		<f:toolbar>
+		<m:Toolbar>
+			<m:Title text="{i18n>columnSettings}"/>
+			<m:ToolbarSpacer />
+			<m:Button icon="sap-icon://edit" text="{i18n>editBtn}" tooltip="{i18n>editBtn}" press="onEditColSetPressed"/>
+		</m:Toolbar>
+		</f:toolbar>
+		<f:content>
+        <Table id="idDispColSettingsTable" rows="{colData>/results}" selectionMode="None" visibleRowCount="7">
+        <columns>
+			<Column width="15rem">
+				<m:Label text="{i18n>columnName}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="15rem">
+				<m:Label text="{i18n>characteristic}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>columnDesc}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>dataElement}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>columnType}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>materialDisplay}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="5rem">
+				<m:Label text="{i18n>customerDisplay}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>sortPosition}" wrapping="true"/>
+				<template>
+					<m:Text text="" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>columnsCollapsible}" wrapping="true"/>
+				<template>
+					<m:CheckBox enabled="false" selected="true" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>columnsFixed}" wrapping="true"/>
+				<template>
+					<m:CheckBox enabled="false" selected="true" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>cvcValueDisplay}" wrapping="true"/>
+				<template>
+					<m:Text text="{rowData>SaveSelectionID}" />
+				</template>
+			</Column>
+            <Column width="10rem">
+				<m:Label text="{i18n>cvcValueColorCode}" wrapping="true"/>
+				<template>
+					<m:Text text="{rowData>LineNameBackup}" />
+				</template>
+			</Column>
+        </columns>
+        </Table>
+		</f:content>
+	</f:SimpleForm>
+</m:VBox>
+</core:FragmentDefinition>

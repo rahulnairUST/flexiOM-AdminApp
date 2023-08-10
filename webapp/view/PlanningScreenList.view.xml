@@ -1,0 +1,62 @@
+<mvc:View controllerName="com.prd.alloc.admin.mngprdallocadmin.controller.PlanningScreenList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem id="idAllocationObjectLabel" name="Planning Screen" label="{i18n>planningScreenLabel}" groupName="Group1" visibleInFilterBar="true">
+						<fb:control>
+							<MultiInput id="idPlanningScreenListMultiInput" width="60%" valueHelpRequest="onValueHelpPlanningScreen" suggestionRows="{path: '/FLEXIOM', length: 10}">
+                                <suggestionColumns>
+                                    <Column>
+                                        <Label text="{i18n>planningScreenLabel}"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="{i18n>planningScreenDesc}"/>
+                                    </Column>
+                                </suggestionColumns>
+                                <suggestionRows>
+                                    <ColumnListItem>
+                                        <Label text="{PlanningScreen}" />
+                                        <Label text="{PlanningScreenDescr}" />
+                                    </ColumnListItem>
+                                </suggestionRows>
+                            </MultiInput>
+						</fb:control>
+					</fb:FilterGroupItem>
+                </fb:filterGroupItems>
+			</fb:FilterBar>
+            <Table id="idPlanningTable" inset="false" items="{planningData>/results}" >
+                <!-- <headerToolbar>
+                    <OverflowToolbar id="idOV1Toolbar">
+                        <content>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://excel-attachment" press="onExport"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar> -->
+                <columns>
+                    <Column width="auto">
+                        <Text text="{i18n>planningScreenText}" />
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>planningScreenDesc}" />
+                    </Column>
+                    <Column width="auto">
+                        <Text text="{i18n>allocationObject}" />
+                    </Column>
+			    </columns>
+                <items>
+			<ColumnListItem id="idPlanningScreenList" type="Active" press="onPlanningScreenItemPress">
+				<cells>
+					<ObjectIdentifier title="{planningData>PlanningScreen}"/>
+					<Text text="{planningData>PlanningScreenDescr}" />
+					<Text text="{planningData>ProductAllocationObject}" />					
+				</cells>
+			</ColumnListItem>
+		</items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

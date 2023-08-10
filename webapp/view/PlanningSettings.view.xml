@@ -1,0 +1,20 @@
+<mvc:View controllerName="com.prd.alloc.admin.mngprdallocadmin.controller.PlanningSettings"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<SplitContainer
+		id="SplitContDemo"
+		initialDetail="detail"
+		initialMaster="master">
+		<detailPages>
+			<Page id="iddetailPage" backgroundDesign= "Solid">			
+			</Page>	
+		</detailPages>
+		<masterPages>
+			<Page id="master" showNavButton="true" navButtonPress="onNavBack">
+				<Tree id="idSettingsTree" items="{settingsModel>/results}" mode="None" includeItemInSelection="true" itemPress="onSelectSettings">
+					<StandardTreeItem id="idSettingsList" type="Active" title="{settingsModel>text}"/>
+				</Tree>
+			</Page>
+		</masterPages>
+	</SplitContainer>
+</mvc:View>    

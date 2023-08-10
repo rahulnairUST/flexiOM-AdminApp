@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<VBox class="sapUiSmallMargin">
+	<f:SimpleForm id="idChangePlanningScreenSettingsForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>planningScreenSettings}"
+		singleContainerFullSize="false" >
+		<f:toolbar>
+		<Toolbar>
+			<Title text="{i18n>planningScreenSettings}"/>
+			<ToolbarSpacer />
+			<Button icon="sap-icon://display" text="Display" tooltip="{i18n>displayBtn}" press="onDisplayPlnScrSetPressed"/>
+			<Button icon="sap-icon://save" text="Save" tooltip="{i18n>saveBtn}" press="onSavePlnScrSetPressed"/>
+		</Toolbar>
+		</f:toolbar>
+		<f:content>
+			<Label text="{i18n>planningScreenDesc}" tooltip="{i18n>planningScreenDesc}"/>
+			<Input value="{planningSettings>/PlanningScreen}"/>
+			<Label text="{i18n>allocationObject}" tooltip="{i18n>allocationObject}"/>
+			<Input value="{planningSettings>/ProductAllocationObject}"/>
+			<Label text="{i18n>bucketDisplay}" tooltip="{i18n>bucketDisplay}"/>
+			<Select id="idChngBuckerDisplay" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>	
+			<Label text="{i18n>XLSImport}" tooltip="{i18n>XLSImport}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/ExcelImport}" />
+			<Label text="{i18n>collapseButton}" tooltip="{i18n>collapseButton}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/ButtonCvcCollapse}" />
+			<Label text="{i18n>pagingButton}" tooltip="{i18n>pagingButton}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/ButtonCvcPaging}" />	
+			<Label text="{i18n>wrCVCStatusLog}" tooltip="{i18n>wrCVCStatusLog}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/CvcStatusLogWrite}" />
+			<Label text="{i18n>wrTimeSeriesLog}" tooltip="{i18n>wrTimeSeriesLog}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/TimeseriesLogWrite}" />
+			<Label text="{i18n>cvcLogDisplay}" tooltip="{i18n>bucketDisplay}"/>
+			<Select id="idChngCVCLogDisplay" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>traceDisplay}" tooltip="{i18n>traceDisplay}"/>
+			<Select id="idChngtraceDisplay" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>cvcStatusChngDisplay}" tooltip="{i18n>cvcStatusChngDisplay}"/>
+			<Select id="idChngCVCStatusChngDisplay" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>cvcStatusChange}" tooltip="{i18n>cvcStatusChange}"/>
+			<Select id="idChngCVCStatusChng" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>refreshButton}" tooltip="{i18n>refreshButton}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/ButtonRefresh}" />
+			<Label text="{i18n>draftDisplay}" tooltip="{i18n>draftDisplay}"/>
+			<Select id="idChngdraftDisplay" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>multiUserDrafts}" tooltip="{i18n>multiUserDrafts}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/DraftMultiUser}" />
+			<Label text="{i18n>allowNotes}" tooltip="{i18n>allowNotes}"/>
+			<Select id="idChngAllowNotes" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>consumptionView}" tooltip="{i18n>consumptionView}"/>
+			<Select id="idChngConsumptionView" items="{accessTypeModel>/results}" required="true">
+				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			</Select>
+			<Label text="{i18n>addRemoveCVC}" tooltip="{i18n>addRemoveCVC}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/AllowNotes}" />
+			<Label text="{i18n>salesOrderViewBtn}" tooltip="{i18n>salesOrderViewBtn}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/SalesOrderView}"/>
+			<Label text="{i18n>userSettings}" tooltip="{i18n>userSettings}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/UserSettings}"/>
+		</f:content>
+	</f:SimpleForm>
+</VBox>
+</core:FragmentDefinition>
