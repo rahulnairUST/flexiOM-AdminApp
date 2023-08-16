@@ -101,7 +101,7 @@
 					<m:Text text="{rowData>CalculationID}" />
 				</template>
 			</Column>
-            <Column width="5rem">
+            <Column width="6rem">
 				<m:Label text="{i18n>calcSequence}" wrapping="true"/>
 				<template>
 					<m:Text text="{rowData>CalculationSequence}" />

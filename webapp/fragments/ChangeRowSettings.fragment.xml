@@ -47,13 +47,13 @@
             <Column width="5rem">
 				<m:Label text="{i18n>useDraft}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>/Draft}"/>
+					<m:CheckBox selected="{rowData>/Draft}"/>
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>keyFlagSelc}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>AllowKeyfgSelection}"/>
+					<m:CheckBox selected="{rowData>AllowKeyfgSelection}"/>
 				</template>
 			</Column>
             <Column width="10rem">
@@ -91,13 +91,13 @@
             <Column width="5rem">
 				<m:Label text="{i18n>cnChkSave}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>SaveConsCheck}"/>
+					<m:CheckBox selected="{rowData>SaveConsCheck}"/>
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>deltaUpload}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>DeltaUpdate}"/>
+					<m:CheckBox selected="{rowData>DeltaUpdate}"/>
 				</template>
 			</Column>
             <Column width="10rem">
@@ -106,7 +106,7 @@
 					<m:Text text="{rowData>CalculationID}" />
 				</template>
 			</Column>
-            <Column width="5rem">
+            <Column width="6rem">
 				<m:Label text="{i18n>calcSequence}" wrapping="true"/>
 				<template>
 					<m:Text text="{rowData>CalculationSequence}" />
