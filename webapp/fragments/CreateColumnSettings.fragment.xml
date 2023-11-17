@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<Dialog id="idCreateColSettings" title="{i18n>createColumnSettings}" draggable="true">
+	<f:SimpleForm id="idChngColSettingsForm" editable="true">
+		<f:content>
+			<Label id="idCreateColumnName" text="{i18n>columnName}" labelFor="idCrInputColumnName"/>
+			<Input id="idCrInputColumnName" value="{createColSettings>/column_name}"/>
+			<Label id="idCreateCharacteristic" text="{i18n>characteristic}" labelFor="idCrInputCreateCharacteristic"/>
+			<Input id="idCrInputCreateCharacteristic" value="{createColSettings>/characteristic}"/>
+			<Label id="idCreateColDesc" text="{i18n>columnDesc}" labelFor="idCrInputCreateColDesc"/>
+			<Input id="idCrInputCreateColDesc" value="{createColSettings>/description}"/>
+			<Label id="idCreateDataElement" text="{i18n>dataElement}" labelFor="idCrInputCreateDataElement"/>
+			<Input id="idCrInputCreateDataElement" value="{createColSettings>/ddic_ref}"/>
+			<Label id="idCreateColType" text="{i18n>columnType}" labelFor="idCrSelectColType"/> 
+			<Select id="idCrSelectColType" items="{colTypes>/results}" required="true" selectedKey="{createColSettings>/column_type}">
+				<core:Item key="{colTypes>key}" text="{colTypes>text}" />
+			</Select>
+			<Label id="idCreateMatDisp" text="{i18n>materialDisplay}" labelFor="idCrSelectMatDisp"/> 
+			<Select id="idCrSelectMatDisp" items="{materialDisp>/results}" required="true" selectedKey="{createColSettings>/material_display}">
+				<core:Item key="{materialDisp>key}" text="{materialDisp>text}" />
+			</Select>
+			<Label id="idCreateCustDisp" text="{i18n>customerDisplay}" labelFor="idCrSelectCustDisp"/> 
+			<Select id="idCrSelectCustDisp" items="{custDisp>/results}" required="true" selectedKey="{createColSettings>/customer_display}">
+				<core:Item key="{custDisp>key}" text="{custDisp>text}" />
+			</Select>
+			<Label id="idCreateSortPos" text="{i18n>sortPosition}" labelFor="idCrInputCreateSortPos"/>
+			<Input id="idCrInputCreateSortPos" value="{createColSettings>/sorting}"/>
+			<Label id="idCreateColCollapsible" text="{i18n>columnsCollapsible}" labelFor="idSwitchColCollapsible"/>
+			<Switch id="idSwitchColCollapsible" state="{createColSettings>/collapsible}" type="AcceptReject" />
+			<Label id="idCreateColFixed" text="{i18n>columnsFixed}" labelFor="idSwitchColFixed"/>
+			<Switch id="idSwitchColFixed" state="{createColSettings>/column_fixed}" type="AcceptReject" />
+			<Label id="idCreateCVCValueDisplay" text="{i18n>cvcValueDisplay}" labelFor="idCrSelectCVCValueDisplay"/> 
+			<Select id="idCrSelectCVCValueDisplay" items="{cvcDisp>/results}" required="true" selectedKey="{createColSettings>/cvc_display}">
+				<core:Item key="{cvcDisp>key}" text="{cvcDisp>text}" />
+			</Select>
+		</f:content>
+	</f:SimpleForm>
+	<beginButton>
+    	<Button type="Emphasized" press="onColSetCreateConfirm" text="{i18n>submit}"/>
+	</beginButton>
+	<endButton>
+		<Button press="onColSetCreateCancel" text="{i18n>cancel}"/>
+	</endButton>
+</Dialog>
+</core:FragmentDefinition>

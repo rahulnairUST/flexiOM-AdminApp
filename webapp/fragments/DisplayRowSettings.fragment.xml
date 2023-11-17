@@ -5,166 +5,168 @@
 		<m:Toolbar>
 			<m:Title text="{i18n>rowSettings}"/>
 			<m:ToolbarSpacer />
+			<m:Button icon="sap-icon://add" text="{i18n>createBtn}" tooltip="{i18n>createBtn}" press="onCreateRowSetPressed"/>
 			<m:Button icon="sap-icon://edit" text="{i18n>editBtn}" tooltip="{i18n>editBtn}" press="onEditRowSetPressed"/>
+			<m:Button icon="sap-icon://delete" text="{i18n>deleteBtn}" tooltip="{i18n>deleteBtn}" press="onDeleteRowSetPressed"/>
 		</m:Toolbar>
 		</f:toolbar>
 		<f:content>
-        <Table id="idDispRowSettingsTable" rows="{rowData>/results}" selectionMode="None" visibleRowCount="7">
+        <Table id="idDispRowSettingsTable" rows="{rowData>/results}" selectionMode="Single" visibleRowCount="7">
         <columns>
 			<Column width="15rem">
 				<m:Label text="{i18n>configLineName}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>LineName}" />
+					<m:Text text="{rowData>line_name}" />
 				</template>
 			</Column>
             <Column width="15rem">
 				<m:Label text="{i18n>rowDesc}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>Description}" />
+					<m:Text text="{rowData>description}" />
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>sortPos}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>Sorting}" />
+					<m:Text text="{rowData>sorting}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>grpLevel}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CvcGroupIdx}" />
+					<m:Text text="{rowData>cvc_group_idx}" />
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>editable}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>Editable}"/>
+					<m:CheckBox editable="false" selected="{rowData>editable}"/>
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>useDraft}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>/Draft}"/>
+					<m:CheckBox editable="false" selected="{rowData>draft}"/>
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>keyFlagSelc}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>AllowKeyfgSelection}"/>
+					<m:CheckBox editable="false" selected="{rowData>allow_keyfg_selection}"/>
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>tsTable}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>TimeseriesTable}" />
+					<m:Text text="{rowData>timeseries_table}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>selectionIDRead}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>ReadSelectionID}" />
+					<m:Text text="{rowData>read_selectionid}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>selectionIDWrite}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>SaveSelectionID}" />
+					<m:Text text="{rowData>save_selectionid}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>configLineNameSave}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>SaveSelectionID}" />
+					<m:Text text="{rowData>line_name_save}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>configLineNameBackup}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>LineNameBackup}" />
+					<m:Text text="{rowData>line_name_backup}" />
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>cnChkSave}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>SaveConsCheck}"/>
+					<m:CheckBox editable="false" selected="{rowData>save_cons_check}"/>
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>deltaUpload}" wrapping="true"/>
 				<template>
-					<m:CheckBox editable="false" selected="{rowData>DeltaUpdate}"/>
+					<m:CheckBox editable="false" selected="{rowData>delta_update}"/>
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>calculationID}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CalculationID}" />
+					<m:Text text="{rowData>calculation_id}" />
 				</template>
 			</Column>
             <Column width="6rem">
 				<m:Label text="{i18n>calcSequence}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CalculationSequence}" />
+					<m:Text text="{rowData>calculation_sequence}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>cvcFormatFOcurrance}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CvcFormat1stOccurrance}" />
+					<m:Text text="{rowData>cvc_format_1st_occurrance}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>cvcDisplay}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CvcDisplay}" />
+					<m:Text text="{rowData>cvc_display}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>cvcColor}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CvcColor}" />
+					<m:Text text="{rowData>cvc_color}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>cvcColorCode}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>CvcColorCode}" />
+					<m:Text text="{rowData>cvc_color_code}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>kfColorCode}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>KeyfigureColorCode}" />
+					<m:Text text="{rowData>keyfigure_color_code}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label text="{i18n>buColorCode}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>BucketColorCode}" />
+					<m:Text text="{rowData>bucket_color_code}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label wrapping="true" text="{i18n>cvcStDisplay}" />
 				<template>
-					<m:Text text="{rowData>CvcStatusDisplay}" />
+					<m:Text text="{rowData>cvc_status_display}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label wrapping="true" text="{i18n>cvcColorCode}" />
 				<template>
-					<m:Text text="{rowData>CvcStatusColorCode}" />
+					<m:Text text="{rowData>cvc_status_color_code}" />
 				</template>
 			</Column>
             <Column width="10rem">
 				<m:Label wrapping="true" text="{i18n>addRemSO}" />
 				<template>
-					<m:Text text="{rowData>AddRemoveOrders}" />
+					<m:Text text="{rowData>add_remove_orders}" />
 				</template>
 			</Column>
             <Column width="5rem">
 				<m:Label text="{i18n>notesID}" wrapping="true"/>
 				<template>
-					<m:Text text="{rowData>NotesTextID}" />
+					<m:Text text="{rowData>notes_text_id}" />
 				</template>
 			</Column>
         </columns>

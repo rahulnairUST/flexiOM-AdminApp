@@ -1,100 +1,44 @@
-<core:FragmentDefinition xmlns="sap.ui.table" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
-<m:VBox class="sapUiSmallMargin">
-	<f:SimpleForm id="idChngColSettingsForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>columnSettings}" >
-		<f:toolbar>
-		<m:Toolbar>
-			<m:Title text="{i18n>columnSettings}"/>
-			<m:ToolbarSpacer />
-			<m:Button icon="sap-icon://display" text="{i18n>displayBtn}" tooltip="{i18n>displayBtn}" press="onDisplayColSetsPressed"/>
-			<m:Button icon="sap-icon://save" text="{i18n>saveBtn}" tooltip="{i18n>saveBtn}" press="onSaveColSetPressed"/>
-		</m:Toolbar>
-		</f:toolbar>
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<Dialog id="idEditColSettings" title="{i18n>editColumnSettings}" draggable="true">
+	<f:SimpleForm id="idChngColSettingsForm" editable="true">
 		<f:content>
-        <Table id="idChngColSettingsTable" rows="{colData>/results}" selectionMode="None" visibleRowCount="7">
-        <columns>
-			<Column width="15rem">
-				<m:Label text="{i18n>columnName}" wrapping="true"/>
-				<template>
-					<m:Text text="" />
-				</template>
-			</Column>
-            <Column width="15rem">
-				<m:Label text="{i18n>characteristic}" wrapping="true"/>
-				<template>
-					<m:Input value="" />
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>columnDesc}" wrapping="true"/>
-				<template>
-					<m:Input value="" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>dataElement}" wrapping="true"/>
-				<template>
-					<m:Input value="" />
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>columnType}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngColType" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>materialDisplay}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngMatDisplay" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>customerDisplay}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngCustDisplay" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>sortPosition}" wrapping="true"/>
-				<template>
-					<m:Input value="" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>columnsCollapsible}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="true" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>columnsFixed}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="true" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcValueDisplay}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngCVCValDisplay" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcValueColorCode}" wrapping="true"/>
-				<template>
-					<m:Input value="{rowData>LineNameBackup}" />
-				</template>
-			</Column>
-        </columns>
-        </Table>
+			<Label id="idEditColumnName" text="{i18n>columnName}" labelFor="idTextColumnName"/>
+			<Text id="idTextColumnName" text="{editColSettings>/column_name}"/>
+			<Label id="idEditCharacteristic" text="{i18n>characteristic}" labelFor="idInputCharacteristic"/>
+			<Input id="idInputCharacteristic" value="{editColSettings>/characteristic}"/>
+			<Label id="idEditColDesc" text="{i18n>columnDesc}" labelFor="idInputColDesc"/>
+			<Input id="idInputColDesc" value="{editColSettings>/description}"/>
+			<Label id="idEditDataElement" text="{i18n>dataElement}" labelFor="idInputDataElement"/>
+			<Input id="idInputDataElement" value="{editColSettings>/ddic_ref}"/>
+			<Label id="idEditColType" text="{i18n>columnType}" labelFor="idSelectColType"/> 
+			<Select id="idSelectColType" items="{colTypes>/results}" required="true" selectedKey="{editColSettings>/column_type}">
+				<core:Item key="{colTypes>key}" text="{colTypes>text}" />
+			</Select>
+			<Label id="idEditMatDisp" text="{i18n>materialDisplay}" labelFor="idSelectMatDisp"/> 
+			<Select id="idSelectMatDisp" items="{materialDisp>/results}" required="true" selectedKey="{editColSettings>/material_display}">
+				<core:Item key="{materialDisp>key}" text="{materialDisp>text}" />
+			</Select>
+			<Label id="idEditCustDisp" text="{i18n>customerDisplay}" labelFor="idSelectCustDisp"/> 
+			<Select id="idSelectCustDisp" items="{custDisp>/results}" required="true" selectedKey="{editColSettings>/customer_display}">
+				<core:Item key="{custDisp>key}" text="{custDisp>text}" />
+			</Select>
+			<Label id="idEditSortPos" text="{i18n>sortPosition}" labelFor="idInputSortPos"/>
+			<Input id="idInputSortPos" value="{editColSettings>/sorting}"/>
+			<Label id="idEditColCollapsible" text="{i18n>columnsCollapsible}" labelFor="idSwitchColCollapsible"/>
+			<Switch id="idSwitchColCollapsible" state="{editColSettings>/collapsible}" type="AcceptReject" />
+			<Label id="idEditColFixed" text="{i18n>columnsFixed}" labelFor="idSwitchColFixed"/>
+			<Switch id="idSwitchColFixed" state="{editColSettings>/column_fixed}" type="AcceptReject" />
+			<Label id="idEditCVCValueDisplay" text="{i18n>cvcValueDisplay}" labelFor="idSelectCVCValueDisplay"/> 
+			<Select id="idSelectCVCValueDisplay" items="{cvcDisp>/results}" required="true" selectedKey="{editColSettings>/cvc_display}">
+				<core:Item key="{cvcDisp>key}" text="{cvcDisp>text}" />
+			</Select>
 		</f:content>
 	</f:SimpleForm>
-</m:VBox>
+	<beginButton>
+    	<Button id="idSubmitColSet" type="Emphasized" press="onColSetEditConfirm" text="{i18n>update}"/>
+	</beginButton>
+	<endButton>
+		<Button id="idCancelColSet" press="onColSetEditCancel" text="{i18n>cancel}"/>
+	</endButton>
+</Dialog>
 </core:FragmentDefinition>

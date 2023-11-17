@@ -37,7 +37,7 @@
                     "action": "admin",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
-                    "icon": ""
+                    "icon": "sap-icon://key-user-settings"
                 }
             }
         }
@@ -117,7 +117,7 @@
                 },
                 {
                     "name": "RoutePlanningSettings",
-                    "pattern": "/planningSettings{planningScreen}",
+                    "pattern": "/planningSettings{planning_screen}",
                     "target": [
                         "TargetPlanningSettings"
                     ]

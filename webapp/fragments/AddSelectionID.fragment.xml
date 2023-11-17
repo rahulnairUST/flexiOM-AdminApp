@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<Dialog id="idAddSelectionIDDialog" title="{i18n>addNewSelectionID}">
+<VBox class="sapUiSmallMargin">
+	<f:SimpleForm id="idAddSelectionIDsForm" editable="true" layout="ResponsiveGridLayout">
+		<f:content>
+			<Label id="idLabelSelectionID" text="{i18n>selectionID}" labelFor="idInputSelectionID"/>
+			<Input id="idInputSelectionID"/>
+			<Label id="idLabelDataSrc" text="{i18n>dataSrc}" labelFor="idAddDataSource"/>
+			<Select id="idAddDataSource" items="{dataSource>/results}" required="true">
+				<core:Item key="{dataSource>key}" text="{dataSource>text}" />
+			</Select>
+		</f:content>
+	</f:SimpleForm>
+</VBox>
+<beginButton>
+    <Button id="idSubmit" type="Emphasized" press="onSelectionIDSubmit" text="{i18n>submit}"/>
+</beginButton>
+<endButton>
+    <Button id="idCancel" press="onSelectionIDCancel" text="{i18n>cancel}"/>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>

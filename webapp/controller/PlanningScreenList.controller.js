@@ -4,11 +4,12 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "sap/ui/core/Fragment",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, UIComponent, Filter, FilterOperator) {
+    function (Controller, JSONModel, UIComponent, Filter, FilterOperator, Fragment) {
         "use strict";
 
         return Controller.extend("com.prd.alloc.admin.mngprdallocadmin.controller.PlanningScreenList", {
@@ -22,8 +23,8 @@ sap.ui.define([
                 var oMultiInput = this.getView().byId("idPlanningScreenListMultiInput");
                 var fnValidator = function (oArgs) {
                     var oObject = oArgs.suggestionObject.getBindingContext().getObject();
-                    var key = oObject.PlanningScreen;
-                    var text = oObject.PlanningScreenDescr;
+                    var key = oObject.planning_screen;
+                    var text = oObject.planning_screen_descr;
                     return new sap.m.Token({ key: key, text: text });
                 };
                 oMultiInput.addValidator(fnValidator);
@@ -32,7 +33,7 @@ sap.ui.define([
             _populatePlanningList: function (aFilters) {
                 var oView = this.getView();
                 var oModel = this.getOwnerComponent().getModel();
-                oModel.read('/FLEXIOM', {
+                oModel.read('/PlanningScreenStngs', {
                     filters: aFilters,
                     success: function (oData, response) {
                         var oModel = new JSONModel();
@@ -55,8 +56,8 @@ sap.ui.define([
                 this._oBasicSearchField = new sap.m.SearchField();
                 if (!this._oValueHelpDialog) {
                     this._oValueHelpDialog = new sap.ui.comp.valuehelpdialog.ValueHelpDialog("idValueHelp", {
-                        key: "PlanningScreen",
-                        descriptionKey: "PlanningScreenDescr",
+                        key: "planning_screen",
+                        descriptionKey: "planning_screen_descr",
                         ok: function (oEvent) {
                             var aTokens = oEvent.getParameter("tokens");
                             oInput.setTokens(aTokens);
@@ -73,8 +74,8 @@ sap.ui.define([
                 var oColModel = new sap.ui.model.json.JSONModel();
                 oColModel.setData({
                     cols: [
-                        { label: "Planning Screen", template: "PlanningScreen" },
-                        { label: "Description", template: "PlanningScreenDescr" }
+                        { label: "Planning Screen", template: "planning_screen" },
+                        { label: "Description", template: "planning_screen_descr" }
                     ]
                 });
 
@@ -83,7 +84,7 @@ sap.ui.define([
 
                 //creating row model and binding it to row aggregation of table
                 var oModel = this.getOwnerComponent().getModel();
-                oModel.read('/FLEXIOM', {
+                oModel.read('/PlanningScreenStngs', {
                     success: function (oData, response) {
                         var oRowModel = new JSONModel();
                         oRowModel.setData(oData);
@@ -101,10 +102,10 @@ sap.ui.define([
             },
 
             onPlanningScreenItemPress: function (oEvent) {
-                var oSelectedPlanningScreen = oEvent.getSource().getBindingContext("planningData").getProperty("PlanningScreen");
+                var oSelectedPlanningScreen = oEvent.getSource().getBindingContext("planningData").getProperty("planning_screen");
                 var oRouter = UIComponent.getRouterFor(this);
                 oRouter.navTo("RoutePlanningSettings", {
-                    "planningScreen": oSelectedPlanningScreen
+                    "planning_screen": oSelectedPlanningScreen
                 });
             },
 
@@ -114,13 +115,31 @@ sap.ui.define([
                 var aTokens = oView.byId("idPlanningScreenListMultiInput").getTokens();
                 for (var i = 0; i < aTokens.length; i++) {
                     ofilter = new Filter({
-                        path: 'PlanningScreen',
+                        path: 'planning_screen',
                         operator: FilterOperator.EQ,
                         value1: aTokens[0].getProperty("key")
                     });
                     aFilters.push(ofilter);
                 }
                 this._populatePlanningList(aFilters);
+            },
+
+            onCreatePress: function () {
+                var that = this;
+                var oView = this.getView();
+                if (!this._sDialog) {
+                    // load asynchronous XML fragment
+                    Fragment.load({
+                        id: oView.getId(),
+                        name: "com.prd.alloc.admin.mngprdallocadmin.fragments.CreatePlanningScreen",
+                        controller: this
+                    }).then(function (oDialog) {
+                        oView.addDependent(oDialog);
+                        oDialog.open();
+                    });
+                } else {
+                    this._sDialog.open();
+                }
             }
         });
     });

@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+<VBox class="sapUiSmallMargin">
+	<f:SimpleForm id="idDisplayATPTimeseriesForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>atpTimeseries}"
+		singleContainerFullSize="true">
+		<f:toolbar>
+		<Toolbar>
+			<Title text="{i18n>atpTimeseries}"/>
+			<ToolbarSpacer />
+			<Button icon="sap-icon://edit" text="{i18n>editBtn}" tooltip="{i18n>editBtn}" press="onEditATPTimeseriesPressed"/>
+		</Toolbar>
+		</f:toolbar>
+		<f:content>
+			<Label text="{i18n>selectionID}" tooltip="{i18n>selectionID}"/>
+			<Text text=""/>
+			<Label text="{i18n>unrestrictedStock}" tooltip="{i18n>unrestrictedStock}"/>
+			<Switch type="AcceptReject" state="true" enabled="false"/>
+			<Label text="{i18n>safetyStock}" tooltip="{i18n>safetyStock}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>	
+			<Label text="{i18n>transferStock}" tooltip="{i18n>transferStock}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>qualityStock}" tooltip="{i18n>qualityStock}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>blockedStock}" tooltip="{i18n>blockedStock}"/>
+			<Switch type="AcceptReject" state="true" enabled="false"/>	
+			<Label text="{i18n>restrictedStock}" tooltip="{i18n>restrictedStock}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>purchaseReq}" tooltip="{i18n>purchaseReq}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>purchaseOrders}" tooltip="{i18n>purchaseOrders}"/>
+			<Text text=""/>
+			<Label text="{i18n>shippingNotif}" tooltip="{i18n>shippingNotif}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>plannedOrders}" tooltip="{i18n>plannedOrders}"/>
+			<Text text=""/>
+			<Label text="{i18n>productionOrders}" tooltip="{i18n>cvcStatusChange}"/>
+			<Text text=""/>
+			<Label text="{i18n>noReceiptsInPast}" tooltip="{i18n>noReceiptsInPast}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>salesOrders}" tooltip="{i18n>salesOrders}"/>
+			<Text text=""/>
+			<Label text="{i18n>deliveries}" tooltip="{i18n>deliveries}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>stoReq}" tooltip="{i18n>stoReq}"/>
+			<Text text=""/>
+			<Label text="{i18n>reservations}" tooltip="{i18n>reservations}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>dependentReqs}" tooltip="{i18n>dependentReqs}"/>
+			<Switch type="AcceptReject" state="false" enabled="false"/>
+			<Label text="{i18n>depReservations}" tooltip="{i18n>depReservations}"/>
+			<Text text=""/>
+		</f:content>
+	</f:SimpleForm>
+</VBox>
+</core:FragmentDefinition>

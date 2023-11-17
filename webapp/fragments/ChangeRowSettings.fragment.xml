@@ -1,196 +1,58 @@
-<core:FragmentDefinition xmlns="sap.ui.table" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
-<m:VBox class="sapUiSmallMargin">
-	<f:SimpleForm id="idChangeRowSettingsForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>rowSettings}" >
-		<f:toolbar>
-		<m:Toolbar>
-			<m:Title text="{i18n>rowSettings}"/>
-			<m:ToolbarSpacer />
-			<m:Button icon="sap-icon://display" text="{i18n>displayBtn}" tooltip="{i18n>displayBtn}" press="onDisplayRowSetsPressed"/>
-			<m:Button icon="sap-icon://save" text="{i18n>saveBtn}" tooltip="{i18n>saveBtn}" press="onSaveRowSetPressed"/>
-		</m:Toolbar>
-		</f:toolbar>
-		<f:content>
-        <Table id="idChngRowSettingsTable" rows="{rowData>/results}" selectionMode="None" visibleRowCount="7" paste="onPaste">
-        <columns>
-			<Column width="15rem">
-				<m:Label text="{i18n>configLineName}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>LineName}" />
-				</template>
-			</Column>
-            <Column width="15rem">
-				<m:Label text="{i18n>rowDesc}" wrapping="true"/>
-				<template>
-					<m:Input value="{rowData>Description}" />
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>sortPos}" wrapping="true"/>
-				<template>
-					<m:Input value="{rowData>Sorting}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>grpLevel}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngGrpLvl" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>editable}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="{rowData>Editable}"/>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>useDraft}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="{rowData>/Draft}"/>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>keyFlagSelc}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="{rowData>AllowKeyfgSelection}"/>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>tsTable}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngTSTable" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>selectionIDRead}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>ReadSelectionID}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>selectionIDWrite}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>SaveSelectionID}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>configLineNameSave}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>SaveSelectionID}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>configLineNameBackup}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>LineNameBackup}" />
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>cnChkSave}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="{rowData>SaveConsCheck}"/>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>deltaUpload}" wrapping="true"/>
-				<template>
-					<m:CheckBox selected="{rowData>DeltaUpdate}"/>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>calculationID}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>CalculationID}" />
-				</template>
-			</Column>
-            <Column width="6rem">
-				<m:Label text="{i18n>calcSequence}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>CalculationSequence}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcFormatFOcurrance}" wrapping="true"/>
-				<template>
-					<m:Text text="{rowData>CvcFormat1stOccurrance}" />
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcDisplay}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngCVCDisplay" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcColor}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngCVCColor" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>cvcColorCode}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngCVCColorCd" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>kfColorCode}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngKFColorCode" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label text="{i18n>buColorCode}" wrapping="true"/>
-				<template>
-					<m:Select id="idChngBUColorCode" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label wrapping="true" text="{i18n>cvcStDisplay}" />
-				<template>
-					<m:Select id="idChngCVCStatDisplay" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label wrapping="true" text="{i18n>cvcColorCode}" />
-				<template>
-					<m:Select id="idChngCVCColorCode" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="10rem">
-				<m:Label wrapping="true" text="{i18n>addRemSO}" />
-				<template>
-					<m:Select id="idChngaddRemSO" items="{accessTypeModel>/results}" required="true">
-						<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
-					</m:Select>
-				</template>
-			</Column>
-            <Column width="5rem">
-				<m:Label text="{i18n>notesID}" wrapping="true"/>
-				<template>
-					<m:Input value="{rowData>NotesTextID}" />
-				</template>
-			</Column>
-        </columns>
-        </Table>
-		</f:content>
-	</f:SimpleForm>
-</m:VBox>
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+<Dialog id="idEditRowSettings" title="{i18n>editRowSet}" draggable="true">
+<content>
+<f:SimpleForm id="idEditRowSetForm" editable="true" >
+    <f:content>
+			<Label id="idEditConfigLineName" text="{i18n>configLineName}" labelFor="idTextConfigLineName"/>
+			<Text id="idTextConfigLineName" text="{editRowSettings>/line_name}"/>
+			<Label id="idEditRowDesc" text="{i18n>rowDesc}" labelFor="idInputRowDesc"/>
+			<Input id="idInputRowDesc" value="{editRowSettings>/description}" required="true"/>
+			<Label id="idEditSortPos" text="{i18n>sortPos}" labelFor="idInputSortPos"/>
+			<Input id="idInputSortPos" value="{editRowSettings>/sorting}" required="true"/>
+			<Label id="idEditGrpLvl" text="{i18n>grpLevel}" labelFor="idSelectGrpLvl"/>
+			<Select id="idSelectGrpLvl" items="{groupLevel>/results}" required="true" selectedKey="{editRowSettings>/cvc_group_idx}">
+				<core:Item key="{groupLevel>key}" text="{groupLevel>text}" />
+			</Select>
+			<Label id="idLblEditable" text="{i18n>editable}" labelFor="idSwitchEditable"/>
+			<Switch id="idSwitchEditable" state="{editRowSettings>/editable}" type="AcceptReject" />
+			<Label id="idLblUseDraft" text="{i18n>useDraft}" labelFor="idSwitchUseDraft"/>
+			<Switch id="idSwitchUseDraft" state="{editRowSettings>/draft}" type="AcceptReject" />
+			<Label id="idLblKeyFigSel" text="{i18n>keyFlagSelc}" labelFor="idSwitchKeyFigSel"/>
+			<Switch id="idSwitchKeyFigSel" state="{editRowSettings>/allow_keyfg_selection}" type="AcceptReject" />
+			<Label id="idEditTSTable" text="{i18n>tsTable}" labelFor="idSelectTSTable"/>
+			<Select id="idSelectTSTable" items="{tsTable>/results}" required="true" selectedKey="{editRowSettings>/timeseries_table}">
+				<core:Item key="{tsTable>key}" text="{tsTable>text}" />
+			</Select>
+			<Label id="idEditSelIDRead" text="{i18n>selectionIDRead}" labelFor="idInputSelIDRead"/>
+			<Input id="idInputSelIDRead" value="{editRowSettings>/read_selectionid}" required="true"/>
+			<Label id="idEditSelIDWrite" text="{i18n>selectionIDWrite}" labelFor="idInputSelIDWrite"/>
+			<Input id="idInputSelIDWrite" value="{editRowSettings>/save_selectionid}" required="true"/>
+			<Label id="idEditConfigLineNameSave" text="{i18n>configLineNameSave}" labelFor="idInputConfigLineNameSave"/>
+			<Input id="idInputConfigLineNameSave" value="{editRowSettings>/line_name_save}" required="true"/>
+			<Label id="idEditConfigLineNameSaveBackup" text="{i18n>configLineNameBackup}" labelFor="idInputConfigLineNameSaveBackup"/>
+			<Input id="idInputConfigLineNameSaveBackup" value="{editRowSettings>/line_name_backup}" required="true"/>
+			<Label id="idEditCnChkSave" text="{i18n>cnChkSave}" labelFor="idSwitchCnChkSave"/>
+			<Switch id="idSwitchCnChkSave" state="{editRowSettings>/save_cons_check}" type="AcceptReject" />
+			<Label id="idEditDeltaUpload" text="{i18n>deltaUpload}" labelFor="idSwitchDeltaUpload"/>
+			<Switch id="idSwitchDeltaUpload" state="{editRowSettings>/delta_update}" type="AcceptReject" />
+			<Label id="idEditCalculationID" text="{i18n>calculationID}" labelFor="idInputCalculationID"/>
+			<Input id="idInputCalculationID" value="{editRowSettings>/calculation_id}" required="true"/>
+			<Label id="idEditCalcSeq" text="{i18n>calcSequence}" labelFor="idInputCalcSeq"/>
+			<Input id="idInputCalcSeq" value="{editRowSettings>/calculation_sequence}" required="true"/>
+			<Label id="idEditCVCFormatOccurance" text="{i18n>cvcFormatFOcurrance}" labelFor="idInputCVCFormatOccurance"/>
+			<Input id="idInputCVCFormatOccurance" value="{editRowSettings>/cvc_format_1st_occurrance}" required="true"/>
+			<Label id="idEditCVCDisplay" text="{i18n>cvcDisplay}" labelFor="idSelectCVCDisplay"/>
+			<Select id="idSelectCVCDisplay" items="{cvcDisplay>/results}" required="true" selectedKey="{editRowSettings>/cvc_display}">
+				<core:Item key="{cvcDisplay>key}" text="{cvcDisplay>text}" />
+			</Select>
+	</f:content>
+</f:SimpleForm>
+</content>
+<beginButton>
+    <Button id="idSubmitRowSet" type="Emphasized" press="onRowSetEditConfirm" text="{i18n>update}"/>
+</beginButton>
+<endButton>
+    <Button id="idCancelRowSet" press="onRowSetEditCancel" text="{i18n>cancel}"/>
+</endButton>
+</Dialog>
 </core:FragmentDefinition>

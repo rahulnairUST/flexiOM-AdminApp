@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+<Dialog id="idCreateRowSettings" title="{i18n>createRowSet}" draggable="true">
+<content>
+<f:SimpleForm id="idCreateRowSetForm" editable="true" >
+    <f:content>
+			<Label id="idCreateConfigLineName" text="{i18n>configLineName}" labelFor="idCrInputConfigLineName"/>
+			<Input id="idCrInputConfigLineName" value="{createRowSettings>/line_name}"/>
+			<Label id="idCreateRowDesc" text="{i18n>rowDesc}" labelFor="idCrInputRowDesc"/>
+			<Input id="idCrInputRowDesc" value="{createRowSettings>/description}" required="true"/>
+			<Label id="idCreateSortPos" text="{i18n>sortPos}" labelFor="idCrInputSortPos"/>
+			<Input id="idCrInputSortPos" value="{createRowSettings>/sorting}" required="true"/>
+			<Label id="idCreateGrpLvl" text="{i18n>grpLevel}" labelFor="idCrSelectGrpLvl"/>
+			<Select id="idCrSelectGrpLvl" items="{groupLevel>/results}" required="true" selectedKey="{createRowSettings>/cvc_group_idx}">
+				<core:Item key="{groupLevel>key}" text="{groupLevel>text}" />
+			</Select>
+			<Label id="idLblEditable" text="{i18n>editable}" labelFor="idSwitchEditable"/>
+			<Switch id="idSwitchEditable" state="{createRowSettings>/editable}" type="AcceptReject" />
+			<Label id="idLblUseDraft" text="{i18n>useDraft}" labelFor="idSwitchUseDraft"/>
+			<Switch id="idSwitchUseDraft" state="{createRowSettings>/draft}" type="AcceptReject" />
+			<Label id="idLblKeyFigSel" text="{i18n>keyFlagSelc}" labelFor="idSwitchKeyFigSel"/>
+			<Switch id="idSwitchKeyFigSel" state="{createRowSettings>/allow_keyfg_selection}" type="AcceptReject" />
+			<Label id="idCreateTSTable" text="{i18n>tsTable}" labelFor="idCrSelectTSTable"/>
+			<Select id="idCrSelectTSTable" items="{tsTable>/results}" required="true" selectedKey="{createRowSettings>/timeseries_table}">
+				<core:Item key="{tsTable>key}" text="{tsTable>text}" />
+			</Select>
+			<Label id="idCreateSelIDRead" text="{i18n>selectionIDRead}" labelFor="idCrInputSelIDRead"/>
+			<Input id="idCrInputSelIDRead" value="{createRowSettings>/read_selectionid}" required="true"/>
+			<Label id="idCreateSelIDWrite" text="{i18n>selectionIDWrite}" labelFor="idCrInputSelIDWrite"/>
+			<Input id="idCrInputSelIDWrite" value="{createRowSettings>/save_selectionid}" required="true"/>
+			<Label id="idCreateConfigLineNameSave" text="{i18n>configLineNameSave}" labelFor="idCrInputConfigLineNameSave"/>
+			<Input id="idCrInputConfigLineNameSave" value="{createRowSettings>/line_name_save}" required="true"/>
+			<Label id="idCreateConfigLineNameSaveBackup" text="{i18n>configLineNameBackup}" labelFor="idCrInputConfigLineNameSaveBackup"/>
+			<Input id="idCrInputConfigLineNameSaveBackup" value="{createRowSettings>/line_name_backup}" required="true"/>
+			<Label id="idCreateCnChkSave" text="{i18n>cnChkSave}" labelFor="idSwitchCnChkSave"/>
+			<Switch id="idSwitchCnChkSave" state="{createRowSettings>/save_cons_check}" type="AcceptReject" />
+			<Label id="idCreateDeltaUpload" text="{i18n>deltaUpload}" labelFor="idSwitchDeltaUpload"/>
+			<Switch id="idSwitchDeltaUpload" state="{createRowSettings>/delta_update}" type="AcceptReject" />
+			<Label id="idCreateCalculationID" text="{i18n>calculationID}" labelFor="idCrInputCalculationID"/>
+			<Input id="idCrInputCalculationID" value="{createRowSettings>/calculation_id}" required="true"/>
+			<Label id="idCreateCalcSeq" text="{i18n>calcSequence}" labelFor="idCrInputCalcSeq"/>
+			<Input id="idCrInputCalcSeq" value="{createRowSettings>/calculation_sequence}" required="true"/>
+			<Label id="idCreateCVCFormatOccurance" text="{i18n>cvcFormatFOcurrance}" labelFor="idCrInputCVCFormatOccurance"/>
+			<Input id="idCrInputCVCFormatOccurance" value="{createRowSettings>/cvc_format_1st_occurrance}" required="true"/>
+			<Label id="idCreateCVCDisplay" text="{i18n>cvcDisplay}" labelFor="idCrSelectCVCDisplay"/>
+			<Select id="idCrSelectCVCDisplay" items="{cvcDisplay>/results}" required="true" selectedKey="{createRowSettings>/cvc_display}">
+				<core:Item key="{cvcDisplay>key}" text="{cvcDisplay>text}" />
+			</Select>
+	</f:content>
+</f:SimpleForm>
+</content>
+<beginButton>
+    <Button id="idSubmitRowSet" type="Emphasized" press="onRowSetCreateConfirm" text="{i18n>submit}"/>
+</beginButton>
+<endButton>
+    <Button id="idCancelRowSet" press="onRowSetCreateCancel" text="{i18n>cancel}"/>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>

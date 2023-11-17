@@ -12,61 +12,61 @@
 		</f:toolbar>
 		<f:content>
 			<Label text="{i18n>planningScreenDesc}" tooltip="{i18n>planningScreenDesc}"/>
-			<Input value="{planningSettings>/PlanningScreen}"/>
+			<Input value="{planningSettings>/planning_screen}"/>
 			<Label text="{i18n>allocationObject}" tooltip="{i18n>allocationObject}"/>
-			<Input value="{planningSettings>/ProductAllocationObject}"/>
+			<Input value="{planningSettings>/planning_screen_descr}"/>
 			<Label text="{i18n>bucketDisplay}" tooltip="{i18n>bucketDisplay}"/>
-			<Select id="idChngBuckerDisplay" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngBuckerDisplay" items="{selectOpt1>/results}" required="true" selectedKey="{planningSettings>/buck_disp_format}">
+				<core:Item key="{selectOpt1>key}" text="{selectOpt1>text}" />
 			</Select>	
 			<Label text="{i18n>XLSImport}" tooltip="{i18n>XLSImport}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/ExcelImport}" />
+			<Switch type="AcceptReject" state="{planningSettings>/excel_import}" />
 			<Label text="{i18n>collapseButton}" tooltip="{i18n>collapseButton}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/ButtonCvcCollapse}" />
+			<Switch type="AcceptReject" state="{planningSettings>/button_cvc_collapse}" />
 			<Label text="{i18n>pagingButton}" tooltip="{i18n>pagingButton}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/ButtonCvcPaging}" />	
+			<Switch type="AcceptReject" state="{planningSettings>/button_cvc_paging}" />	
 			<Label text="{i18n>wrCVCStatusLog}" tooltip="{i18n>wrCVCStatusLog}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/CvcStatusLogWrite}" />
+			<Switch type="AcceptReject" state="{planningSettings>/cvc_status_log_write}" />
 			<Label text="{i18n>wrTimeSeriesLog}" tooltip="{i18n>wrTimeSeriesLog}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/TimeseriesLogWrite}" />
+			<Switch type="AcceptReject" state="{planningSettings>/timeseries_log_write}" />
 			<Label text="{i18n>cvcLogDisplay}" tooltip="{i18n>bucketDisplay}"/>
-			<Select id="idChngCVCLogDisplay" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngCVCLogDisplay" items="{selectOpt2>/results}" required="true" selectedKey="{planningSettings>/cvc_log_display}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>traceDisplay}" tooltip="{i18n>traceDisplay}"/>
-			<Select id="idChngtraceDisplay" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngtraceDisplay" items="{selectOpt2>/results}" required="true" selectedKey="{planningSettings>/trace_display}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>cvcStatusChngDisplay}" tooltip="{i18n>cvcStatusChngDisplay}"/>
-			<Select id="idChngCVCStatusChngDisplay" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngCVCStatusChngDisplay" items="{selectOpt2>/results}" required="true" selectedKey="{planningSettings>/cvc_status_change_disp_option}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>cvcStatusChange}" tooltip="{i18n>cvcStatusChange}"/>
-			<Select id="idChngCVCStatusChng" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngCVCStatusChng" items="{selectOpt3>/results}" required="true" selectedKey="{planningSettings>/cvc_status_change}">
+				<core:Item key="{selectOpt3>key}" text="{selectOpt3>text}" />
 			</Select>
 			<Label text="{i18n>refreshButton}" tooltip="{i18n>refreshButton}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/ButtonRefresh}" />
+			<Switch type="AcceptReject" state="{planningSettings>/button_refresh}" />
 			<Label text="{i18n>draftDisplay}" tooltip="{i18n>draftDisplay}"/>
-			<Select id="idChngdraftDisplay" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngdraftDisplay" items="{selectOpt2>/results}" required="true" selectedKey="{planningSettings>/draft_display}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>multiUserDrafts}" tooltip="{i18n>multiUserDrafts}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/DraftMultiUser}" />
+			<Switch type="AcceptReject" state="{planningSettings>/draft_multi_user}" />
 			<Label text="{i18n>allowNotes}" tooltip="{i18n>allowNotes}"/>
-			<Select id="idChngAllowNotes" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngAllowNotes" items="{selectOpt2>/results}" required="true" selectedKey="{planningSettings>/allow_notes}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>consumptionView}" tooltip="{i18n>consumptionView}"/>
-			<Select id="idChngConsumptionView" items="{accessTypeModel>/results}" required="true">
-				<core:Item key="{accessTypeModel>text}" text="{accessTypeModel>text}" />
+			<Select id="idChngConsumptionView" items="{selectOpt2>/results}" required="true" selectedKey="{plannnigSettings>/consumption_view}">
+				<core:Item key="{selectOpt2>key}" text="{selectOpt2>text}" />
 			</Select>
 			<Label text="{i18n>addRemoveCVC}" tooltip="{i18n>addRemoveCVC}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/AllowNotes}" />
-			<Label text="{i18n>salesOrderViewBtn}" tooltip="{i18n>salesOrderViewBtn}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/SalesOrderView}"/>
-			<Label text="{i18n>userSettings}" tooltip="{i18n>userSettings}"/>
-			<Switch type="AcceptReject" state="{planningSettings>/UserSettings}"/>
+			<Switch type="AcceptReject" state="{planningSettings>/allow_notes}" />
+			<Label text="Sales Order View Button" tooltip="Sales Order View Button"/>
+			<Switch type="AcceptReject" state="{planningSettings>/sales_order_view}"/>
+			<Label text="User Settings" tooltip="User Settings"/>
+			<Switch type="AcceptReject" state="{planningSettings>/user_settings}"/>
 		</f:content>
 	</f:SimpleForm>
 </VBox>
